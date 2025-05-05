@@ -1,0 +1,8 @@
+{
+    "profiles": {
+        "dotnet": {
+            "commandName": "Project",
+            "commandLineArgs": "dotnet -n Server -p \"C:\\krk\\mcp\\mcp-csharp-template\\src\\Server\\Server.csproj\""
+        }
+    }
+}

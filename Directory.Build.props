@@ -1,0 +1,60 @@
+<Project>
+
+	<PropertyGroup>
+		<LangVersion>latest</LangVersion>
+		<TargetFramework>net9.0</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+		<Deterministic>true</Deterministic>
+		<RestoreUseStaticGraphEvaluation>false</RestoreUseStaticGraphEvaluation>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>embedded</DebugType>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Configurations>Debug;Release;x64 Debug;x64 Release</Configurations>
+		<Platforms>AnyCPU;x64;x86;</Platforms>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/krk-architect/mcp-csharp-template</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>Kyle Kolander</Authors>
+		<Copyright>© 2025 Kyle Kolander.  All rights reserved.</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<NoWarn>NU5104</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<NoLogo>true</NoLogo>
+	</PropertyGroup>
+
+</Project>
