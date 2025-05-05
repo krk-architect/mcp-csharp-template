@@ -1,0 +1,11 @@
+[Bb]in/
+[Oo]bj
+.vs/
+.suo
+*.user
+project.lock.json
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
+node_modules/
