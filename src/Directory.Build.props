@@ -1,0 +1,62 @@
+<Project>
+
+	<Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+	<!-- Version Info -->
+	<PropertyGroup>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<Version>1.0.0</Version>
+	</PropertyGroup>
+
+	<!-- Assembly Signing -->
+	<PropertyGroup>
+		<!-- <AssemblyOriginatorKeyFile>$(RepoRoot)your-key.snk</AssemblyOriginatorKeyFile> -->
+		<DelaySign>false</DelaySign>
+		<SignAssembly>true</SignAssembly>
+	</PropertyGroup>
+
+	<!-- Documentation -->
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<!-- Output Settings -->
+	<PropertyGroup>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+		<ErrorOnDuplicatePublishOutputFiles>true</ErrorOnDuplicatePublishOutputFiles>
+		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+	</PropertyGroup>
+
+	<!-- Package Configuration -->
+	<PropertyGroup>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<IsPackable>false</IsPackable>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/krk-architect/mcp-csharp-template</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageTags>mcp;server;client;template</PackageTags>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/krk-architect/mcp-csharp-template</RepositoryUrl>
+		<WarnOnPackingNonPackableProject>true</WarnOnPackingNonPackableProject>
+	</PropertyGroup>
+
+	<!-- Continuous Integration for GitHub -->
+	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
+	<!-- SourceLink setup for GitHub -->
+	<ItemGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+	</ItemGroup>
+
+	<!-- Include README and LICENSE in package -->
+	<ItemGroup>
+		<None Include="$(RepoRoot)README.md" Pack="true" PackagePath="\" Visible="false" />
+		<None Include="$(RepoRoot)LICENSE"   Pack="true" PackagePath="\" Visible="false" />
+	</ItemGroup>
+
+</Project>

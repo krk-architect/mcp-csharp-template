@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- File name extension must be .runsettings -->
+<!-- For more information, see https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019  -->
+<RunSettings>
+
+	<!-- See https://github.com/microsoft/vstest-docs/blob/master/docs/configure.md -->
+	<RunConfiguration>
+		<BatchSize>10</BatchSize>
+		<CollectSourceInformation>true</CollectSourceInformation>
+		<DesignMode>false</DesignMode>
+		<DisableAppDomain>false</DisableAppDomain>
+		<DisableParallelization>false</DisableParallelization>
+		<MaxCpuCount>0</MaxCpuCount> <!-- Use all available cores -->
+		<ResultsDirectory>../../test/TestResults</ResultsDirectory>
+		<TargetFrameworkVersion>net9.0</TargetFrameworkVersion>
+		<TargetPlatform>x64</TargetPlatform>
+		<TestSessionTimeout>15000</TestSessionTimeout>
+		<TreatNoTestsAsError>true</TreatNoTestsAsError>
+	</RunConfiguration>
+
+	<!-- Parameters used by tests at run time
+    <TestRunParameters>
+        <Parameter name="apiUrl" value="https://localhost:7206" />
+    </TestRunParameters> -->
+
+	<!--  Section for loggers,  see https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019#loggerrunsettings-element -->
+	<LoggerRunSettings>
+		<Loggers>
+			<Logger friendlyName="console" enabled="True">
+				<Configuration>
+					<Verbosity>detailed</Verbosity>
+				</Configuration>
+			</Logger>
+			<Logger friendlyName="html" enabled="True">
+				<Configuration>
+					<LogFileName>Unit_TestResults.html</LogFileName>
+				</Configuration>
+			</Logger>
+			<Logger friendlyName="nunit" enabled="True">
+				<Configuration>
+					<LogFileName>Unit_TestResults.xml</LogFileName>
+				</Configuration>
+			</Logger>
+			<Logger friendlyName="trx" enabled="True">
+				<Configuration>
+					<LogFileName>Unit_TestResults.trx</LogFileName>
+				</Configuration>
+			</Logger>
+		</Loggers>
+	</LoggerRunSettings>
+
+	<!-- NUnit3 adapter, uncomment sections to set as appropriate, numeric, booleans, enums have their default values below, except RandomSeed -->
+	<!-- For documentation, see https://docs.nunit.org/articles/vs-test-adapter/Tips-And-Tricks.html -->
+	<NUnit>
+		<AssemblySelectLimit>2000</AssemblySelectLimit>
+		<ConsoleOut>1</ConsoleOut>
+		<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>
+		<DefaultTimeout>0</DefaultTimeout>
+		<InternalTraceLevel>Off</InternalTraceLevel>
+		<NumberOfTestWorkers>-1</NumberOfTestWorkers>
+		<ShowInternalProperties>true</ShowInternalProperties>
+		<SkipNonTestAssemblies>true</SkipNonTestAssemblies>
+		<StopOnError>false</StopOnError>
+		<UseTestNameInConsoleOutput>true</UseTestNameInConsoleOutput>
+		<UseVsKeepEngineRunning>false</UseVsKeepEngineRunning>
+		<Verbosity>0</Verbosity>
+		<!--<Where></Where>-->        <!-- NUnit filter expression, see https://docs.nunit.org/articles/nunit/running-tests/Test-Selection-Language.html  -->
+	</NUnit>
+
+</RunSettings>

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<AssemblyName>Test.Unit</AssemblyName>
+		<RootNamespace>Test.Unit</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<NoWarn>$(NoWarn);CS1591</NoWarn> <!-- Missing XML comments -->
+	</PropertyGroup>
+
+	<!-- Additional test settings -->
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)\test.runsettings" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\Client\Client.csproj" />
+		<ProjectReference Include="..\..\src\Server\Server.csproj" />
+	</ItemGroup>
+
+</Project>

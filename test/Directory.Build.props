@@ -1,0 +1,48 @@
+<Project>
+
+	<Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+	<PropertyGroup>
+		<IsTestProject>true</IsTestProject>
+		<IsPackable>false</IsPackable>
+		<UseSourceLink>false</UseSourceLink>
+		<IsTrimmable>false</IsTrimmable>
+	</PropertyGroup>
+
+	<!-- Test Configuration -->
+	<PropertyGroup>
+		<RunSettingsFilePath>$(MSBuildProjectDirectory)\test.runsettings</RunSettingsFilePath>
+	</PropertyGroup>
+
+	<!-- Test Settings -->
+	<PropertyGroup Label="coverlet.msbuild">
+		<CollectCoverage>true</CollectCoverage>
+		<CoverletOutputFormat>cobertura</CoverletOutputFormat>
+		<CoverletOutput>$(TestRoot)\CoverageResults\$(MSBuildProjectName).cobertura.xml</CoverletOutput>
+		<DeterministicReport>true</DeterministicReport>
+		<ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
+		<Include>[KRK.*]*</Include>
+		<Exclude>[*.Tests]*,[NUnit*]*,[*]*.Program</Exclude>
+		<IncludeTestAssembly>false</IncludeTestAssembly>
+		<SingleHit>false</SingleHit>
+		<SkipAutoProps>true</SkipAutoProps>
+		<ThresholdType>line,branch,method</ThresholdType>
+	</PropertyGroup>
+
+	<!-- Common test package references -->
+	<ItemGroup>
+		<PackageReference Include="coverlet.collector" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" PrivateAssets="all" />
+		<PackageReference Include="coverlet.msbuild"   IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" PrivateAssets="all" />
+
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk"           />
+		<PackageReference Include="Microsoft.Playwright.NUnit"       />
+
+		<PackageReference Include="NSubstitute"                      />
+
+		<PackageReference Include="NUnit"                            />
+		<PackageReference Include="NUnit3TestAdapter"                />
+		<PackageReference Include="NunitXml.TestLogger"              />
+	</ItemGroup>
+
+</Project>

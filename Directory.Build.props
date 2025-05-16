@@ -1,0 +1,63 @@
+<Project>
+
+	<!-- Company/Product Info -->
+	<PropertyGroup>
+		<Authors>Your Name</Authors>
+		<Copyright>© 2025 Your Name. All rights reserved.</Copyright>
+		<Product>C# MCP Template Repository</Product>
+	</PropertyGroup>
+
+	<!-- Language and Framework Settings -->
+	<PropertyGroup>
+		<LangVersion>preview</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<TargetFramework>net9.0</TargetFramework>
+	</PropertyGroup>
+
+	<!-- Code Quality -->
+	<PropertyGroup>
+		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<AnalysisLevel>preview</AnalysisLevel>
+		<SdkAnalysisLevel>preview</SdkAnalysisLevel>
+		<NoWarn>1591;NU5104</NoWarn>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<!-- Build Performance -->
+	<PropertyGroup>
+		<AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+		<Deterministic>true</Deterministic>
+		<RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+	</PropertyGroup>
+
+	<!-- Source Link / Debugging -->
+	<PropertyGroup>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>embedded</DebugType>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+	</PropertyGroup>
+
+	<!-- Build Configuration Settings -->
+	<PropertyGroup>
+		<Configurations>Debug;Release</Configurations>
+		<Platforms>AnyCPU</Platforms>
+		<NoLogo>true</NoLogo>
+	</PropertyGroup>
+
+	<!-- Localization Settings -->
+	<PropertyGroup>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+	</PropertyGroup>
+
+	<!-- Base Path References (for use in child props files) -->
+	<PropertyGroup>
+		<RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+		<SrcRoot>$(RepoRoot)src</SrcRoot>
+		<TestRoot>$(RepoRoot)test</TestRoot>
+	</PropertyGroup>
+
+</Project>
