@@ -1,10 +1,11 @@
 global using System.CommandLine;
 global using System.Diagnostics.CodeAnalysis;
 global using System.Reflection;
+global using System.Text;
 global using System.Text.Json;
-global using Client;
-global using Client.Extensions;
-global using Client.Tool;
+global using StdioClient;
+global using StdioClient.Extensions;
+global using StdioClient.Tool;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Hosting;

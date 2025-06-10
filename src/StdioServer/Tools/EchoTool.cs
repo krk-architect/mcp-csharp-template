@@ -1,4 +1,4 @@
-﻿namespace Server.Tools;
+﻿namespace StdioServer.Tools;
 
 [McpServerToolType]
 public static class EchoTool

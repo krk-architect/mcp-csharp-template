@@ -1,4 +1,4 @@
-﻿namespace Server;
+﻿namespace StdioServer;
 
 public static class SystemDateTime
 {

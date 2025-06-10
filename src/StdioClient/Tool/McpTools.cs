@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Client.Tool;
+﻿namespace StdioClient.Tool;
 
 public class McpTools
 {

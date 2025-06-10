@@ -1,4 +1,4 @@
-﻿namespace Client;
+﻿namespace StdioClient;
 
 public partial class App
 {

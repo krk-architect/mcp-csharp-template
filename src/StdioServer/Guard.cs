@@ -1,4 +1,4 @@
-﻿namespace Server;
+﻿namespace StdioServer;
 
 public abstract class Guard<T> : IDisposable
 {

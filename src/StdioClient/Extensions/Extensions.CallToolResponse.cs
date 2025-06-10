@@ -1,4 +1,4 @@
-﻿namespace Client.Extensions;
+﻿namespace StdioClient.Extensions;
 
 public static partial class Extensions
 {

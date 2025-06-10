@@ -11,8 +11,8 @@
   </Folder>
   <Folder Name="/src/">
     <File Path="src/Directory.Build.props" />
-    <Project Path="src/Client/Client.csproj" />
-    <Project Path="src/Server/Server.csproj" />
+    <Project Path="src/StdioClient/StdioClient.csproj" />
+    <Project Path="src/StdioServer/StdioServer.csproj" />
   </Folder>
   <Folder Name="/test/">
     <File Path="test/Directory.Build.props" />

@@ -1,4 +1,4 @@
-﻿namespace Client;
+﻿namespace StdioClient;
 
 [ExcludeFromCodeCoverage]
 public partial class App : IHostedService
