@@ -19,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\StdioClient\StdioClient.csproj" />
+		<ProjectReference Include="..\..\src\Client\Client.csproj" />
 		<ProjectReference Include="..\..\src\StdioServer\StdioServer.csproj" />
 	</ItemGroup>
 

@@ -3,7 +3,7 @@
 [McpServerToolType]
 public static class PingPongTool
 {
-    public const string PongResponse = "pong";
+    public const string PongResponse               = "pong";
     public const string NotAPingPongMasterResponse = "clearly you are not a ping pong master";
 
     [McpServerTool]

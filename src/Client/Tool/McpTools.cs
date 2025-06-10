@@ -1,4 +1,4 @@
-﻿namespace StdioClient.Tool;
+﻿namespace Client.Tool;
 
 public class McpTools
 {

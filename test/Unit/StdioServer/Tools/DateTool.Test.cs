@@ -7,7 +7,7 @@ public class DateToolTests
     public void GetDate_ShouldReturnCurrentDateFormatted()
     {
         // Arrange
-        var now = DateTime.Now;
+        var now      = DateTime.Now;
         var expected = now.ToString("dddd MMMM d, yyyy");
 
         // Act

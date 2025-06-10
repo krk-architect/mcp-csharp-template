@@ -13,7 +13,7 @@
   <Folder Name="/src/">
     <File Path="src/Directory.Build.props" />
     <Project Path="src/SSEServer/SSEServer.csproj" />
-    <Project Path="src/StdioClient/StdioClient.csproj" />
+    <Project Path="src/Client/Client.csproj" />
     <Project Path="src/StdioServer/StdioServer.csproj" />
   </Folder>
   <Folder Name="/test/">

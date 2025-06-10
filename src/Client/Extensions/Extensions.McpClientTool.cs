@@ -1,4 +1,4 @@
-﻿namespace StdioClient.Extensions;
+﻿namespace Client.Extensions;
 
 public static partial class McpToolParser
 {

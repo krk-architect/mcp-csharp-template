@@ -9,8 +9,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<AssemblyName>StdioClient</AssemblyName>
-		<RootNamespace>StdioClient</RootNamespace>
+		<AssemblyName>Client</AssemblyName>
+		<RootNamespace>Client</RootNamespace>
 	</PropertyGroup>
 
 	<PropertyGroup>
