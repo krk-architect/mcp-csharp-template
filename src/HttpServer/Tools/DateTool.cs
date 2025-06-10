@@ -1,4 +1,4 @@
-﻿namespace SSEServer.Tools;
+﻿namespace HttpServer.Tools;
 
 [McpServerToolType]
 public static class DateTool

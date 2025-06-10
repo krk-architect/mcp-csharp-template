@@ -5,13 +5,13 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<AssemblyName>SSEServer</AssemblyName>
-		<RootNamespace>SSEServer</RootNamespace>
+		<AssemblyName>HttpServer</AssemblyName>
+		<RootNamespace>HttpServer</RootNamespace>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Description>C# MCP SSE Server</Description>
-		<Summary>An example C# MCP SSE server.</Summary>
+		<Description>C# MCP Streamable HTTP Server with SSE fallback</Description>
+		<Summary>An example C# MCP Streamable HTTP server with SSE fallback.</Summary>
 	</PropertyGroup>
 
 	<ItemGroup>

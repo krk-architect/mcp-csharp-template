@@ -1,8 +1,22 @@
 {
     "profiles": {
-        "dotnet": {
+        "dotnet-stdio": {
             "commandName": "Project",
-            "commandLineArgs": "dotnet -n Server -p \"..\\..\\StdioServer\\StdioServer.csproj\""
+            "commandLineArgs": "dotnet -n StdioServer -p \"..\\..\\StdioServer\\StdioServer.csproj\""
+        },
+        "http-modern": {
+            "commandName": "Project",
+            "commandLineArgs": "http -n HttpServer -u \"http://localhost:5000\"",
+            "environmentVariables": {
+                "STARTUP_DELAY_MS": "3000"
+            }
+        },
+        "sse-legacy": {
+            "commandName": "Project",
+            "commandLineArgs": "sse -n HttpServer -u \"http://localhost:5000\"",
+            "environmentVariables": {
+                "STARTUP_DELAY_MS": "3000"
+            }
         }
     }
 }

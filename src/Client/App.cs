@@ -13,7 +13,7 @@ public partial class App : IHostedService
     private IHostApplicationLifetime AppLifetime { get; }
     private int                      ExitCode    { get; set; }
 
-    private async Task RunWithArgsAsync(string name, string command, List<string> arguments)
+    private async Task RunWithStdioAsync(string name, string command, List<string> arguments)
     {
         try
         {
@@ -24,36 +24,97 @@ public partial class App : IHostedService
                                                              , Arguments = arguments
                                                            });
 
-            var client = await McpClientFactory.CreateAsync(clientTransport).ConfigureAwait(false);
-            var tools  = await client.GetMcpToolsAsync().ConfigureAwait(false);
-
-            while (true)
-            {
-                var selection = PromptUserForToolSelection(tools);
-
-                if (selection == 0)
-                {
-                    break;
-                }
-
-                var selectedTool = tools[selection - 1];
-                var toolSchema   = selectedTool.ParseToolSchema();
-
-                PromptUserForPropertyValues(toolSchema);
-
-                var callToolResponse = await client.CallToolAsync(selectedTool.Name
-                                                                , toolSchema.GetCallToolArguments()
-                                                                , cancellationToken: CancellationToken.None)
-                                                   .ConfigureAwait(false);
-
-                DisplayToolResponse(callToolResponse);
-            }
+            await RunClientInteractionAsync(clientTransport).ConfigureAwait(false);
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "Unhandled exception!");
+            Logger.LogError(e, "Unhandled exception in STDIO transport!");
             ExitCode = 2;
-            return;
+        }
+    }
+
+    private Task RunWithSseAsync(string name, string url, List<string> _)
+    {
+        Logger.LogInformation("Connecting using SSE transport to {Url}", url);
+
+        return RunWithUniversalHttpAsync(name, url, _);
+    }
+
+    private Task RunWithHttpAsync(string name, string url, List<string> _)
+    {
+        Logger.LogInformation("Connecting using HTTP transport to {Url}", url);
+
+        return RunWithUniversalHttpAsync(name, url, _);
+    }
+
+    private async Task RunWithUniversalHttpAsync(string name, string url, List<string> _)
+    {
+        try
+        {
+            // Check for startup delay (useful when both projects start simultaneously)
+            if (int.TryParse(Environment.GetEnvironmentVariable("STARTUP_DELAY_MS"), out var delayMs) && delayMs > 0)
+            {
+                Logger.LogInformation("Waiting {DelayMs}ms for server startup...", delayMs);
+
+                await Task.Delay(delayMs).ConfigureAwait(false);
+            }
+
+            // SseClientTransport is used for both HTTP and SSE connections, and we're defaulting to HttpTransportMode.AutoDetect
+            var transport = new SseClientTransport(new()
+                                                   {
+                                                       Name     = name
+                                                     , Endpoint = url.ToUri()
+                                                   });
+
+            await RunClientInteractionAsync(transport).ConfigureAwait(false);
+
+            Logger.LogInformation("Successfully connected to MCP server");
+        }
+        catch (Exception e)
+        {
+            Logger.LogError(e, "Transport connection failed!");
+            ExitCode = 2;
+        }
+    }
+
+    private async Task RunClientInteractionAsync(StdioClientTransport transport)
+    {
+        var client = await McpClientFactory.CreateAsync(transport).ConfigureAwait(false);
+
+        await ExecuteToolInteractionLoopAsync(client).ConfigureAwait(false);
+    }
+
+    private async Task RunClientInteractionAsync(SseClientTransport transport)
+    {
+        var client = await McpClientFactory.CreateAsync(transport).ConfigureAwait(false);
+
+        await ExecuteToolInteractionLoopAsync(client).ConfigureAwait(false);
+    }
+
+    private async Task ExecuteToolInteractionLoopAsync(IMcpClient client)
+    {
+        var tools = await client.GetMcpToolsAsync().ConfigureAwait(false);
+
+        while (true)
+        {
+            var selection = PromptUserForToolSelection(tools);
+
+            if (selection == 0)
+            {
+                break;
+            }
+
+            var selectedTool = tools[selection - 1];
+            var toolSchema   = selectedTool.ParseToolSchema();
+
+            PromptUserForPropertyValues(toolSchema);
+
+            var callToolResponse = await client.CallToolAsync(selectedTool.Name
+                                                            , toolSchema.GetCallToolArguments()
+                                                            , cancellationToken: CancellationToken.None)
+                                               .ConfigureAwait(false);
+
+            DisplayToolResponse(callToolResponse);
         }
 
         ExitCode = 0;

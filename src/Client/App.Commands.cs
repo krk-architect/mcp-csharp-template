@@ -14,6 +14,8 @@ public partial class App
                             , CreateNodeCommand(  nameOption, argumentsOption)
                             , CreateUvxCommand(   nameOption, argumentsOption)
                             , CreatePythonCommand(nameOption, argumentsOption)
+                            , CreateSseCommand(   nameOption, argumentsOption)
+                            , CreateHttpCommand(  nameOption, argumentsOption)
                           };
 
         return rootCommand;
@@ -69,14 +71,14 @@ public partial class App
                            {
                                var projectPath = ResolvePath(project); // allow for relative paths
 
-                               await RunWithArgsAsync(name
-                                                    , "dotnet"
-                                                    , [
-                                                          "run"
-                                                        , "--project"
-                                                        , projectPath
-                                                        , ..arguments
-                                                      ])
+                               await RunWithStdioAsync(name
+                                                     , "dotnet"
+                                                     , [
+                                                           "run"
+                                                         , "--project"
+                                                         , projectPath
+                                                         , ..arguments
+                                                       ])
                                   .ConfigureAwait(false);
                            }
                          , nameOption
@@ -101,13 +103,13 @@ public partial class App
 
         command.SetHandler(async (name, package, arguments) =>
                            {
-                               await RunWithArgsAsync(name
-                                                    , "npx"
-                                                    , [
-                                                          "-y"
-                                                        , package
-                                                        , ..arguments
-                                                      ])
+                               await RunWithStdioAsync(name
+                                                     , "npx"
+                                                     , [
+                                                           "-y"
+                                                         , package
+                                                         , ..arguments
+                                                       ])
                                   .ConfigureAwait(false);
                            }
                          , nameOption
@@ -132,12 +134,12 @@ public partial class App
 
         command.SetHandler(async (name, jsFilePath, arguments) =>
                            {
-                               await RunWithArgsAsync(name
-                                                    , "node.exe"
-                                                    , [
-                                                          jsFilePath
-                                                        , ..arguments
-                                                      ])
+                               await RunWithStdioAsync(name
+                                                     , "node.exe"
+                                                     , [
+                                                           jsFilePath
+                                                         , ..arguments
+                                                       ])
                                   .ConfigureAwait(false);
                            }
                          , nameOption
@@ -162,12 +164,12 @@ public partial class App
 
         command.SetHandler(async (name, package, arguments) =>
                            {
-                               await RunWithArgsAsync(name
-                                                    , "uvx"
-                                                    , [
-                                                          package
-                                                        , ..arguments
-                                                      ])
+                               await RunWithStdioAsync(name
+                                                     , "uvx"
+                                                     , [
+                                                           package
+                                                         , ..arguments
+                                                       ])
                                   .ConfigureAwait(false);
                            }
                          , nameOption
@@ -192,16 +194,64 @@ public partial class App
 
         command.SetHandler(async (name, jsFilePath, arguments) =>
                            {
-                               await RunWithArgsAsync(name
-                                                    , "python.exe"
-                                                    , [
-                                                          jsFilePath
-                                                        , ..arguments
-                                                      ])
+                               await RunWithStdioAsync(name
+                                                     , "python.exe"
+                                                     , [
+                                                           jsFilePath
+                                                         , ..arguments
+                                                       ])
                                   .ConfigureAwait(false);
                            }
                          , nameOption
                          , pythonPackageOption
+                         , argumentsOption);
+
+        return command;
+    }
+
+    private Command CreateSseCommand(Option<string> nameOption, Option<List<string>> argumentsOption)
+    {
+        var command = new Command("sse", "Connect to an MCP server using SSE transport (legacy compatibility)");
+
+        var urlOption = CreateOption<string>("--url"
+                                           , "The URL of the SSE MCP server endpoint"
+                                           , "-u"
+                                           , true);
+
+        command.Add(nameOption);
+        command.Add(urlOption);
+        command.Add(argumentsOption);
+
+        command.SetHandler(async (name, url, arguments) =>
+                           {
+                               await RunWithSseAsync(name, url, arguments).ConfigureAwait(false);
+                           }
+                         , nameOption
+                         , urlOption
+                         , argumentsOption);
+
+        return command;
+    }
+
+    private Command CreateHttpCommand(Option<string> nameOption, Option<List<string>> argumentsOption)
+    {
+        var command = new Command("http", "Connect to an MCP server using HTTP transport (modern servers)");
+
+        var urlOption = CreateOption<string>("--url"
+                                           , "The base URL of the HTTP MCP server"
+                                           , "-u"
+                                           , true);
+
+        command.Add(nameOption);
+        command.Add(urlOption);
+        command.Add(argumentsOption);
+
+        command.SetHandler(async (name, url, arguments) =>
+                           {
+                               await RunWithHttpAsync(name, url, arguments).ConfigureAwait(false);
+                           }
+                         , nameOption
+                         , urlOption
                          , argumentsOption);
 
         return command;
