@@ -1,8 +1,9 @@
-﻿namespace Test.Unit;
+﻿// ReSharper disable InvertIf
+
+namespace Test.Unit;
 
 /// <summary>
-///     This class will have all of the One Time setup/teardown logic applicable to all the unit tests.
-///     <para></para>
+///     This class will have all of the One Time setup/teardown logic applicable to all the unit tests.<br />
 ///     It currently does nothing but write output.
 /// </summary>
 [SetUpFixture]
@@ -11,13 +12,13 @@ public class UnitTests
     [OneTimeSetUp]
     public void OneTimeSetup()
     {
-        TestContext.WriteLine("OneTimeSetup");
+        WriteLine(MessageDestination.TestContext, "OneTimeSetup");
     }
 
     [OneTimeTearDown]
     public void OneTimeTearDown()
     {
-        TestContext.WriteLine("OneTimeTearDown");
+        WriteLine(MessageDestination.TestContext, "OneTimeTearDown");
     }
 
     public static void WriteLine(MessageDestination destination, string message, string prefix = "", bool flush = false)

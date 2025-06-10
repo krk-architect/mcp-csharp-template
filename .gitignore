@@ -10,3 +10,7 @@ publish/
 
 [Bb]in/
 [Oo]bj/
+
+# Test and Code Coverage
+TestResults*/
+CoverageResults*/

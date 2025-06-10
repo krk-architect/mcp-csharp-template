@@ -18,9 +18,9 @@
 	<PropertyGroup Label="coverlet.msbuild">
 		<CollectCoverage>true</CollectCoverage>
 		<CoverletOutputFormat>cobertura</CoverletOutputFormat>
-		<CoverletOutput>$(TestRoot)\CoverageResults\$(MSBuildProjectName).cobertura.xml</CoverletOutput>
 		<DeterministicReport>true</DeterministicReport>
-		<ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
+		<DoesNotReturnAttribute>DoesNotReturnAttribute</DoesNotReturnAttribute>
+		<ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
 		<Include>[KRK.*]*</Include>
 		<Exclude>[*.Tests]*,[NUnit*]*,[*]*.Program</Exclude>
 		<IncludeTestAssembly>false</IncludeTestAssembly>
@@ -34,9 +34,7 @@
 		<PackageReference Include="coverlet.collector" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" PrivateAssets="all" />
 		<PackageReference Include="coverlet.msbuild"   IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" PrivateAssets="all" />
 
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk"           />
-		<PackageReference Include="Microsoft.Playwright.NUnit"       />
 
 		<PackageReference Include="NSubstitute"                      />
 

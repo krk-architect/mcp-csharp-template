@@ -55,8 +55,8 @@
 
 	<!-- Include README and LICENSE in package -->
 	<ItemGroup>
-		<None Include="$(RepoRoot)README.md" Pack="true" PackagePath="\" Visible="false" />
-		<None Include="$(RepoRoot)LICENSE"   Pack="true" PackagePath="\" Visible="false" />
+		<None Include="$(RepoRootDirectory)README.md" Pack="true" PackagePath="\" Visible="false" />
+		<None Include="$(RepoRootDirectory)LICENSE"   Pack="true" PackagePath="\" Visible="false" />
 	</ItemGroup>
 
 </Project>

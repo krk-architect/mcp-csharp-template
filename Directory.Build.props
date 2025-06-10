@@ -55,9 +55,10 @@
 
 	<!-- Base Path References (for use in child props files) -->
 	<PropertyGroup>
-		<RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
-		<SrcRoot>$(RepoRoot)src</SrcRoot>
-		<TestRoot>$(RepoRoot)test</TestRoot>
+		<RepoRootDirectory>$(MSBuildThisFileDirectory)</RepoRootDirectory>
+		<SrcRootDirectory>$(RepoRootDirectory)src\</SrcRootDirectory>
+		<TestRootDirectory>$(RepoRootDirectory)test\</TestRootDirectory>
+		<UnitTestDirectory>$(TestRootDirectory)Unit\</UnitTestDirectory>
 	</PropertyGroup>
 
 </Project>

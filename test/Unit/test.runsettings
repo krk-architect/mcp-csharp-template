@@ -13,8 +13,6 @@
 		<DisableParallelization>false</DisableParallelization>
 		<MaxCpuCount>0</MaxCpuCount> <!-- Use all available cores -->
 		<ResultsDirectory>../../test/TestResults</ResultsDirectory>
-		<TargetFrameworkVersion>net9.0</TargetFrameworkVersion>
-		<TargetPlatform>x64</TargetPlatform>
 		<TestSessionTimeout>15000</TestSessionTimeout>
 		<TreatNoTestsAsError>true</TreatNoTestsAsError>
 	</RunConfiguration>
@@ -55,7 +53,7 @@
 	<NUnit>
 		<AssemblySelectLimit>2000</AssemblySelectLimit>
 		<ConsoleOut>1</ConsoleOut>
-		<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>
+		<DefaultTestNamePattern>{c}.{m}{a}</DefaultTestNamePattern>
 		<DefaultTimeout>0</DefaultTimeout>
 		<InternalTraceLevel>Off</InternalTraceLevel>
 		<NumberOfTestWorkers>-1</NumberOfTestWorkers>

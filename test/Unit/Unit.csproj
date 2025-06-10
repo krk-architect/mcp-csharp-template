@@ -9,19 +9,18 @@
 		<NoWarn>$(NoWarn);CS1591</NoWarn> <!-- Missing XML comments -->
 	</PropertyGroup>
 
+	<PropertyGroup Label="coverlet.msbuild">
+		<CoverletOutput>$(TestRootDirectory)\CoverageResults\$(AssemblyName).cobertura.xml</CoverletOutput>
+	</PropertyGroup>
+
 	<!-- Additional test settings -->
 	<ItemGroup>
-		<None Include="$(MSBuildThisFileDirectory)\test.runsettings" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="$(UnitTestDirectory)\test.runsettings" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\Client\Client.csproj" />
 		<ProjectReference Include="..\..\src\Server\Server.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="ClientTests\" />
-	  <Folder Include="ServerTests\" />
 	</ItemGroup>
 
 </Project>
