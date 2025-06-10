@@ -20,4 +20,10 @@
 		<PackageReference Include="ModelContextProtocol.AspNetCore" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="HttpServer.appsettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
 </Project>

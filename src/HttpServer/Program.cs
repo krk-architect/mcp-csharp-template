@@ -5,12 +5,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration
        .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-       .AddJsonFile(appsettingsName, true)
+       .AddJsonFile(appsettingsName, true, true)
        .AddEnvironmentVariables("McpCsharpTemplate_HttpServer_");
 
 builder.Logging
-       .AddSimpleConsole()
-       .AddDebug();
+       .ClearProviders()
+       .AddConsole()
+       .AddDebug()
+       .AddConfiguration(builder.Configuration.GetSection("Logging"));
 
 builder.Services
        .AddMcpServer()
