@@ -1,0 +1,70 @@
+{
+    "output": {
+        "filePath": "repomix-output.md",
+        "style": "markdown",
+        "removeComments": false,
+        "removeEmptyLines": false,
+        "topFilesLength": 20,
+        "showLineNumbers": false,
+        "copyToClipboard": false
+    },
+    "include": [
+        "README.md",
+        "Directory.Build.props",
+        "Directory.Packages.props",
+        "src/Directory.Build.props",
+        "test/Directory.Build.props",
+
+        "src/SSEServer/SSEServer.csproj",
+        "src/SSEServer/GlobalUsings.cs",
+        "src/SSEServer/Program.cs",
+        "src/SSEServer/SystemDateTime.cs",
+        "src/SSEServer/Guard.cs",
+        "src/SSEServer/Tools/DateTool.cs",
+        "src/SSEServer/Tools/EchoTool.cs",
+        "src/SSEServer/Tools/PingPongTool.cs",
+
+        "src/StdioServer/StdioServer.csproj",
+        "src/StdioServer/GlobalUsings.cs",
+        "src/StdioServer/Program.cs",
+        "src/StdioServer/SystemDateTime.cs",
+        "src/StdioServer/Guard.cs",
+        "src/StdioServer/Tools/DateTool.cs",
+        "src/StdioServer/Tools/EchoTool.cs",
+        "src/StdioServer/Tools/PingPongTool.cs",
+
+        "src/StdioClient/StdioClient.csproj",
+        "src/StdioClient/GlobalUsings.cs",
+        "src/StdioClient/appsettings.json",
+        "src/StdioClient/Program.cs",
+        "src/StdioClient/App.cs",
+        "src/StdioClient/App.Console.cs",
+        "src/StdioClient/App.Commands.cs",
+        "src/StdioClient/Extensions/Extensions.CallToolResponse.cs",
+        "src/StdioClient/Extensions/Extensions.IMcpClient.cs",
+        "src/StdioClient/Extensions/Extensions.McpClientTool.cs",
+        "src/StdioClient/Tool/McpToolProperty.cs",
+        "src/StdioClient/Tool/McpTools.cs",
+        "src/StdioClient/Tool/McpToolSchema.cs",
+        "src/StdioClient/Properties/launchSettings.json",
+
+        "test/Unit/Unit.csproj",
+        "test/Unit/GlobalUsings.cs",
+        "test/Unit/Setup.cs",
+        "test/Unit/test.runsettings",
+        "test/Unit/StdioServer/Tools/DateTool.Test.cs",
+        "test/Unit/StdioServer/Tools/EchoTool.Test.cs",
+        "test/Unit/StdioServer/Tools/PingPongTool.Test.cs"
+    ],
+    "ignore": {
+        "useGitignore": false,
+        "useDefaultPatterns": false,
+        "customPatterns": [
+            "**/bin/**",
+            "**/obj/**"
+        ]
+    },
+    "security": {
+        "enableSecurityCheck": true
+    }
+}

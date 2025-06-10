@@ -1,4 +1,4 @@
-namespace Test.Unit.ServerTests;
+namespace StdioServer.Tools;
 
 [TestFixture]
 public class DateToolTests

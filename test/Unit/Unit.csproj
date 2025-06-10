@@ -23,4 +23,8 @@
 		<ProjectReference Include="..\..\src\StdioServer\StdioServer.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="StdioServer\Tools\" />
+	</ItemGroup>
+
 </Project>

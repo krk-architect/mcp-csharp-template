@@ -10,8 +10,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Description>C# MCP Server</Description>
-		<Summary>An example C# MCP server.</Summary>
+		<Description>C# MCP Stdio Server</Description>
+		<Summary>An example C# MCP Stdio server.</Summary>
 	</PropertyGroup>
 
 	<ItemGroup>

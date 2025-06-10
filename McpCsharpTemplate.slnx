@@ -8,9 +8,11 @@
     <File Path="McpCsharpTemplate.sln.DotSettings" />
     <File Path="nuget.config" />
     <File Path="README.md" />
+    <File Path="repomix.config.json" />
   </Folder>
   <Folder Name="/src/">
     <File Path="src/Directory.Build.props" />
+    <Project Path="src/SSEServer/SSEServer.csproj" />
     <Project Path="src/StdioClient/StdioClient.csproj" />
     <Project Path="src/StdioServer/StdioServer.csproj" />
   </Folder>

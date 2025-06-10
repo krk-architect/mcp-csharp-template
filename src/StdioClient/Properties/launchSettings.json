@@ -2,7 +2,7 @@
     "profiles": {
         "dotnet": {
             "commandName": "Project",
-            "commandLineArgs": "dotnet -n Server -p \"..\\..\\Server\\Server.csproj\""
+            "commandLineArgs": "dotnet -n Server -p \"..\\..\\StdioServer\\StdioServer.csproj\""
         }
     }
 }

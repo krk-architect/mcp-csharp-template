@@ -14,3 +14,5 @@ publish/
 # Test and Code Coverage
 TestResults*/
 CoverageResults*/
+
+repomix-output.md
