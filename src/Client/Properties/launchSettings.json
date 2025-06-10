@@ -8,14 +8,14 @@
             "commandName": "Project",
             "commandLineArgs": "http -n HttpServer -u \"http://localhost:5000\"",
             "environmentVariables": {
-                "STARTUP_DELAY_MS": "3000"
+                "STARTUP_DELAY_MS": "1000"
             }
         },
         "sse-legacy": {
             "commandName": "Project",
             "commandLineArgs": "sse -n HttpServer -u \"http://localhost:5000\"",
             "environmentVariables": {
-                "STARTUP_DELAY_MS": "3000"
+                "STARTUP_DELAY_MS": "1000"
             }
         }
     }
