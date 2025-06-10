@@ -1,4 +1,4 @@
-﻿namespace StdioServer.Tools;
+﻿namespace Core.Tools;
 
 [McpServerToolType]
 public static class DateTool

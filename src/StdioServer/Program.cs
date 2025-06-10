@@ -9,7 +9,7 @@ builder.Logging.AddConsole(static consoleLogOptions =>
 builder.Services
        .AddMcpServer()
        .WithStdioServerTransport()
-       .WithToolsFromAssembly();
+       .WithToolsFromAssembly(Assembly.GetAssembly(typeof(Core.Tools.DateTool)));
 
 await builder.Build()
              .RunAsync()

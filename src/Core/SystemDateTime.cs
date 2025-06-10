@@ -1,4 +1,4 @@
-﻿namespace HttpServer;
+﻿namespace Core;
 
 public static class SystemDateTime
 {

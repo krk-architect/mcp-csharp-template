@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<AssemblyName>Core</AssemblyName>
+		<RootNamespace>Core</RootNamespace>
+    </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ModelContextProtocol" />
+	</ItemGroup>
+
+</Project>

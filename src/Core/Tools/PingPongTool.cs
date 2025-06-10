@@ -1,4 +1,4 @@
-﻿namespace HttpServer.Tools;
+﻿namespace Core.Tools;
 
 [McpServerToolType]
 public static class PingPongTool

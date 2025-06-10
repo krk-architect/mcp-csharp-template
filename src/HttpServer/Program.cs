@@ -17,7 +17,7 @@ builder.Logging
 builder.Services
        .AddMcpServer()
        .WithHttpTransport()
-       .WithToolsFromAssembly();
+       .WithToolsFromAssembly(Assembly.GetAssembly(typeof(Core.Tools.DateTool)));
 
 var app = builder.Build();
 

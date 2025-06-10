@@ -1,4 +1,4 @@
-﻿namespace HttpServer;
+﻿namespace Core;
 
 public abstract class Guard<T> : IDisposable
 {
